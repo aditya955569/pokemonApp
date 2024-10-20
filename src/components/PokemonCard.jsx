@@ -1,10 +1,7 @@
 import React from 'react'
 
 function PokemonCard({ pokemon }) {
-  // Fallback image URL (replace with an actual fallback image URL)
   const fallbackImageUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png'
-
-  // Function to get the best available image
   const getBestImage = (pokemon) => {
     if (pokemon.sprites.other['official-artwork'].front_default) {
       return pokemon.sprites.other['official-artwork'].front_default
@@ -22,7 +19,7 @@ function PokemonCard({ pokemon }) {
         alt={pokemon.name}
         className="w-32 h-32 mx-auto object-contain"
         onError={(e) => {
-          e.target.onerror = null // Prevent infinite loop
+          e.target.onerror = null 
           e.target.src = fallbackImageUrl
         }}
       />
